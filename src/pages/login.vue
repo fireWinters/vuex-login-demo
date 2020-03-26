@@ -53,6 +53,16 @@ export default {
                 return false 
                 alert("请填写账号和密码")
             }
+            const that=this;
+            store.commit("login",{
+                account:that.form.account,
+                password:that.form.password
+            })
+            store.commit("setcustomInfo",{
+                userstatus:0,
+                viplevel:0
+            })
+            that.$router.push("./");
         //     if (!this.form.account && !this.form.password) {
         //         alert("请填写账号密码");
         //         return false;

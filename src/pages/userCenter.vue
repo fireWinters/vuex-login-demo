@@ -8,7 +8,7 @@
             </section>
             <section class="user-info">
                 <label for class="user-info-label">身份</label>
-                <span class="user-info-value">{{memberInfo}}</span>
+                <span class="user-info-value">{{userinfoo}}</span>
             </section>
             <section class="vip-list">
                 <ul class="container">
@@ -39,36 +39,41 @@ export default {
     },
     mounted() {
         this.vipList = [
-            { name: "vip会员", charge: "10.00", vipLevel: 0, userStatus: 1 },
+            { 
+                name: "vip会员", 
+                charge: "10.00", 
+                viplevel: 0, 
+                userstatus: 1 
+                },
             {
                 name: "高级VIP1会员",
                 charge: "50.00",
-                vipLevel: 1,
-                userStatus: 2
+                viplevel: 1,
+                userstatus: 2
             },
             {
                 name: "高级VIP3会员",
                 charge: "100.00",
-                vipLevel: 3,
-                userStatus: 2
+                viplevel: 3,
+                userstatus: 2
             },
             {
                 name: "高级VIP9会员",
                 charge: "1000.00",
-                vipLevel: 9,
-                userStatus: 2
+                viplevel: 9,
+                userstatus: 2
             },
             {
                 name: "高级VIP12会员",
                 charge: "10000.00",
-                vipLevel: 12,
-                userStatus: 2
+                viplevel: 12,
+                userstatus: 2
             }
         ];
     },
     computed: {
         ...mapState(["userInfo"]),
-        ...mapGetters(["memberInfo"])
+        ...mapGetters(["userinfoo"])
     },
     methods: {
         recharge() {},

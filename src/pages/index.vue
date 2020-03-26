@@ -3,7 +3,8 @@
         <h1>你好</h1>
         <p class="text">
             尊敬的
-            <span style="color: red;">{{memberInfo}}用户</span>，欢迎来到德莱联盟！
+            <!-- <span style="color: red;">{{memberInfo}}用户</span>，欢迎来到德莱联盟！ -->
+            <span style="color: red;">{{userinfoo}}用户</span>，欢迎来到德莱联盟！
         </p>
 
         <div class>
@@ -20,7 +21,8 @@
 
 <script>
 import card from "../components/card";
-import { mapGetters, mapState } from "vuex";
+// import { mapGetters, mapState } from "vuex";
+import {mapGetters,mapState} from "vuex";
 export default {
     components: {
         card
@@ -41,8 +43,8 @@ export default {
                 title: "学习vuex",
                 description: "2312",
                 charge: "",
-                userStatus: 0,
-                vipLevel: 0
+                userstatus: 0,
+                viplevel: 0
             },
             {
                 id: "2",
@@ -51,8 +53,8 @@ export default {
                 title: "实战课程",
                 description: "2312",
                 charge: "实战课程",
-                userStatus: 1,
-                vipLevel: 0
+                userstatus: 1,
+                viplevel: 0
             },
             {
                 id: "3",
@@ -61,15 +63,19 @@ export default {
                 title: "v12会员专享课程",
                 description: "2312",
                 charge: "v12会员专享",
-                userStatus: 2,
-                vipLevel: 12
+                userstatus: 2,
+                viplevel: 12
             }
         ];
     },
-    computed: {
-        ...mapState(["userStatus", "vipLevel"]),
-        ...mapGetters(["memberInfo"])
+    computed:{
+        ...mapGetters(["userinfoo"]),
+        ...mapState(['userstatus','viplevel'])
     },
+    // computed: {
+    //     ...mapState(["userStatus", "vipLevel"]),
+    //     ...mapGetters(["memberInfo"])
+    // },
     mounted() {},
     methods: {
         recharge() {
@@ -89,10 +95,10 @@ export default {
             }
         },
         checkPermission(e) {
-            const userStatus = this.$store.state.userStatus;
-            const vipLevel = this.$store.state.vipLevel;
-            if (userStatus >= e.userStatus) {
-                if (vipLevel >= e.vipLevel) {
+            const userstatus = this.$store.state.userstatus;
+            const viplevel = this.$store.state.viplevel;
+            if (userstatus >= e.userstatus) {
+                if (viplevel >= e.viplevel) {
                     return true;
                 } else {
                     return false;
